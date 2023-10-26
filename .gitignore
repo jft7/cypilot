@@ -1,0 +1,6 @@
+*.pyc
+.vscode/settings.json
+src/cypilot.egg-info
+build
+__pycache__
+work
