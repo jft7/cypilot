@@ -1,0 +1,35 @@
+#! /bin/bash
+# set -x
+
+PATH=/sbin:/usr/sbin:/bin:/usr/bin:/usr/local/bin
+# This script is launch at system startup, once FS has been mount
+
+LOG_INF=/home/pi/.cypilot/daemon.log
+echo "Logfile : $LOG_INF at $(date)" >> $LOG_INF
+
+raspi-gpio set 27 ip pn
+
+while [ true ]
+do
+sleep 4
+if ! [ -c /dev/virtualcom1 ]
+if ! [ -c /dev/virtualcom1 ]
+then
+	echo "Creating virtual device : virtualcom1 at $(date)" >> $LOG_INF
+	sudo socat pty,link=/dev/virtualcom1,raw,group-late=dialout,mode=660 tcp:127.0.0.1:20220 & >> $LOG_INF
+fi
+
+if `raspi-gpio get 27 | fgrep -q "level=0"`
+then
+	echo "Shutdown at $(date)" >> $LOG_INF
+	raspi-gpio set 21 op dl
+	sleep 3
+	raspi-gpio set 21 dh
+	sleep 3
+	raspi-gpio set 21 ip
+	sudo shutdown -h 0
+	echo "Shutdown ..."
+	sleep 60
+fi
+
+done

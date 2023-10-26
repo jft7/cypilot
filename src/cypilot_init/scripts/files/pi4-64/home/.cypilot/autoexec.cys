@@ -1,0 +1,26 @@
+#! /bin/bash
+set -x
+
+cd /home/pi/.cypilot
+
+PATH=/sbin:/usr/sbin:/bin:/usr/bin:/usr/local/bin
+
+LOG_INF=/home/pi/.cypilot/autoexec.log
+echo "Logfile : $LOG_INF at $(date)" >> $LOG_INF
+
+# This script is run at system startup, once FS has been mount
+
+echo "CyPilot Autoexec start at $(date)" >> $LOG_INF
+
+raspi-gpio set 21 op
+raspi-gpio set 21 dl
+sleep 8
+raspi-gpio set 21 dh
+sleep 3
+raspi-gpio set 21 ip
+
+sudo socat pty,link=/dev/virtualcom1,raw,group-late=dialout,mode=660 tcp:127.0.0.1:20220 & >> $LOG_INF
+
+/home/pi/.cypilot/daemon.cys &
+
+echo "CyPilot Autoexec done at $(date)" >> $LOG_INF

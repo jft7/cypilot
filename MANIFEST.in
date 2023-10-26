@@ -1,0 +1,2 @@
+recursive-include src/cypilot_init *
+recursive-include src/cypilot *.mtl *.obj *.h *.png

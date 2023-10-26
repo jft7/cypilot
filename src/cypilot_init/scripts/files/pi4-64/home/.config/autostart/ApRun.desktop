@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=ApRun
+Comment=ApRun
+Icon=/home/pi/CysDev/cypilot/src/cypilot_init/icons/Logo_CYS_sailing.jpg
+Exec=/usr/bin/python3.9 /home/pi/CysDev/cypilot/src/cypilot/ui/qt_autopilot.py
+Terminal=false
