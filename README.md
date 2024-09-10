@@ -4,7 +4,7 @@ This is a much modified version of the original pypilot software created by Sean
 under the terms of the GNU General Public License as published by the Free Software Foundation
 (version 3 of the License or any later version)
 
-(C) 2020-2023 Cybele Services (cf@cybele-sailing.com)
+(C) 2020-2024 Cybele Services (cf@cybele-sailing.com)
 
 Designed for:
 
@@ -12,9 +12,13 @@ Designed for:
    (see doc/Img and https://cybele-sailing.com)
 
    - Support of latest IMU devices with built-in fusion (RTIMULib2 is no longer used) : BNO085/BNO086 from HillCrest Labs is recommended
-   (use BNO08X with HillCrest labs/CEVA firmware, original Bosch BNO055 no longer supported)
+   (use BNO08X with HillCrest labs/CEVA firmware, original Bosch BNO055 no longer supported and really not recommended)
 
-   - New specific pilot algorithms with auto-tune, auto-learning, ...
+   - Modified interface of the helm control unit (direct rudder angle control)
+
+   - New specific pilot algorithms with auto-tune, auto-learning (work in progress ...), ...
+
+   - Support of some ultra-sonic wind sensor (BlueTooth)
 
    - QT Dialogs
 
